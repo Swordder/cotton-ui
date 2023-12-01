@@ -3,19 +3,20 @@ import * as React from 'react'
 import { Fragment, useContext } from 'react'
 import Icon from '../Icon'
 import {MenuContext} from '../menu'
+import type { IconProps } from '../Icon'
+import { LevelContext } from '../menu'
 
 export interface MenuItemProps {
   label: string
   index: string
-  icon?: {
-    prefix: string
-    name: string
-  }
+  icon?: IconProps
+  rightSlot?: React.ReactNode
   onClick?: (label:string, index: string) => void
 }
 
+
 const MenuItem: React.FC<MenuItemProps> = props => {
-  const { label, index, icon, onClick } = props
+  const { label, index, icon, rightSlot, onClick } = props
   const menuContext = useContext(MenuContext)
   const {textColor,activeTextColor,activeIndex,menuTrigger} = menuContext
   const handleClick: React.MouseEventHandler = e => {
@@ -23,12 +24,14 @@ const MenuItem: React.FC<MenuItemProps> = props => {
     e.stopPropagation()
     onClick && onClick(label,index)
   }
+  const level = useContext(LevelContext)
   return (
     <Fragment key={index}>
-      <li onClick={handleClick} className='ct-menuItem' style={{color: activeIndex === index ? activeTextColor : textColor}}>
-        {icon && <Icon name={icon.name} prefix={icon.prefix}></Icon>}
-        <span className='ct-menuItem__title'>{ label }</span>
-      </li>
+        <li onClick={handleClick} className='ct-menuItem' style={{color: activeIndex === index ? activeTextColor : textColor,paddingLeft: 20 * level}}>
+          {icon && <Icon {...icon}></Icon>}
+          <span className='ct-menuItem__title'>{ label }</span>
+          {rightSlot}
+        </li>
     </Fragment>
   )
 }
