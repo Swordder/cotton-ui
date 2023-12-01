@@ -1,0 +1,15 @@
+{
+  "name": "cotton-ui",
+  "packageManager": "yarn@3.6.4",
+  "scripts": {
+    "gen": "sh scripts/gc.sh"
+  },
+  "workspaces": [
+    "packages/*"
+  ],
+  "devDependencies": {
+    "eslint": "^8.52.0",
+    "prettier": "^3.0.3",
+    "typescript": "^5.2.2"
+  }
+}

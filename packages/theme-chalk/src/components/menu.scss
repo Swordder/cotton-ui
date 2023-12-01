@@ -1,0 +1,15 @@
+@use '../mixins/bem.scss' as *;
+@use '../mixins/_var' as *;
+@use '../common/var' as *;
+
+
+@include b(menu) {
+  margin: 0;
+  padding: 0;
+  width: 240px;
+  @include set-component-css-var('menu', $menu);
+  @include e(word) {
+    color: skyblue
+  }
+}
+

@@ -1,0 +1,21 @@
+@use 'sass:map';
+
+$namespace: 'ct' !default;
+$common-separator: '-' !default;
+$element-separator: '__' !default;
+$modifier-separator: '--' !default;
+$state-prefix: 'is-' !default;
+
+// $range: () !default;
+// $range: map.merge(
+//   ( 'maxWidth': 1200,
+//     'maxFontSize': 36,
+//     'maxPadding': 100,
+//     'maxMargin': 100
+//   ), 
+//   $range 
+// );
+
+$units: px, rem, em;
+
+

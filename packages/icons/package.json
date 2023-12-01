@@ -1,0 +1,7 @@
+{
+  "name": "@cotton-ui/icons",
+  "packageManager": "yarn@3.6.4",
+  "devDependencies": {
+    "@types/node": "^20.8.10"
+  }
+}

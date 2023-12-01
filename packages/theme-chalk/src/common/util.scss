@@ -1,0 +1,107 @@
+// @use 'sass:map';
+// @use './config' as config;
+
+// @use './alias.scss' as alias;
+
+// @each $key, $val in alias.$widthAlias, alias.$paddingAlias, alias.$marginAlias {
+//   @for $i from 0 through config.$range {
+//     .#{$val}-#{$i} {
+//       #{$key}: #{$i}px
+//     }
+//     @each $unit in config.$units {
+//       .#{$val}-#{$i+$unit} {
+//         #{$key}: #{$i+$unit}
+//       }
+//     }
+//   }
+// }
+
+
+
+
+// @for $i from 0 through map.get($range,'maxWidth') {
+//   .w-#{$i} {
+//     width: #{$i}px;
+//   }
+//   @each $unit in $units {
+//     .w-#{$i+$unit} {
+//       width: #{$i+$unit};
+//     }
+//   }
+// }
+
+// @for $i from 0 through map.get($range,'maxPadding') {
+//   .p-#{$i} {
+//     padding: #{$i}px;
+//   }
+//   .pt-#{$i} {
+//     padding-top: #{$i}px;
+//   }
+//   .pb-#{$i} {
+//     padding-bottom: #{$i}px;
+//   }
+//   .pl-#{$i} {
+//     padding-left: #{$i}px;
+//   }
+//   .pr-#{$i} {
+//     padding-right: #{$i}px;
+//   }
+//   .px-#{$i} {
+//     padding: 0 #{$i}px;
+//   }
+//   .py-#{$i} {
+//     padding: #{$i}px 0;
+//   }
+//   @each $unit in $units {
+//     .p-#{$i+$unit} {
+//       padding: #{$i+$unit};
+//     }
+//     .pt-#{$i+$unit} {
+//       padding-top: #{$i+$unit};
+//     }
+//     .pb-#{$i+$unit} {
+//       padding-bottom: #{$i+$unit};
+//     }
+//     .pl-#{$i+$unit} {
+//       padding-left: #{$i+$unit};
+//     }
+//     .pr-#{$i+$unit} {
+//       padding-right: #{$i+$unit};
+//     }
+//     .px-#{$i+$unit} {
+//       padding: 0 #{$i+$unit};
+//     }
+//     .py-#{$i+$unit} {
+//       padding: #{$i+$unit} 0;
+//     }
+//   }
+// }
+
+// @for $i from 0 through map.get($range,'maxMargin') {
+//   .m-#{$i} {
+//     margin: #{$i}px;
+//   }
+//   .mt-#{$i} {
+//     margin-top: #{$i}px;
+//   }
+//   .mb-#{$i} {
+//     margin-bottom: #{$i}px;
+//   }
+//   .ml-#{$i} {
+//     margin-left: #{$i}px;
+//   }
+//   .mr-#{$i} {
+//     margin-right: #{$i}px;
+//   }
+//   .mx-#{$i} {
+//     margin: 0 #{$i}px;
+//   }
+//   .my-#{$i} {
+//     margin: #{$i}px 0;
+//   }
+// }
+// @for $i from 0 through map.get($range,'maxFontSize') {
+//   .text-#{$i} {
+//     font-size: #{$i}px;
+//   }
+// }

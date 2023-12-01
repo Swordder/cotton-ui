@@ -1,0 +1,65 @@
+@font-face {
+  font-family: "ct-icon"; /* Project id 3184398 */
+  src: url('iconfont.woff2?t=1700963659962') format('woff2'),
+       url('iconfont.woff?t=1700963659962') format('woff'),
+       url('iconfont.ttf?t=1700963659962') format('truetype'),
+       url('iconfont.svg?t=1700963659962#iconfont') format('svg');
+}
+
+.ct-icon {
+  font-family: "ct-icon" !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.ct-icon-arrow-up:before {
+  content: "\e9c2";
+}
+
+.ct-icon-message:before {
+  content: "\e62d";
+}
+
+.ct-icon-smile:before {
+  content: "\e600";
+}
+
+.ct-icon-add:before {
+  content: "\eb89";
+}
+
+.ct-icon-microphone:before {
+  content: "\e888";
+}
+
+.ct-icon-discover:before {
+  content: "\e714";
+}
+
+.ct-icon-home:before {
+  content: "\e751";
+}
+
+.ct-icon-subscribe:before {
+  content: "\e63f";
+}
+
+.ct-icon-expand-menu:before {
+  content: "\e624";
+}
+
+.ct-icon-tip:before {
+  content: "\e63a";
+}
+
+.ct-icon-audio:before {
+  content: "\e687";
+}
+
+.ct-icon-setting:before {
+  content: "\e8b8";
+}
+
+
