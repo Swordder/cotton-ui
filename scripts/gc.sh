@@ -36,7 +36,7 @@ EOF
 
 cat > $DIRNAME/style/index.css <<EOF
 @import '@cotton-ui/theme-chalk/src/base.scss';
-@import '@cotton-ui/theme-chalk/src/components/${INPUT_NAME}.scss;'
+@import '@cotton-ui/theme-chalk/src/components/${INPUT_NAME}.scss';
 EOF
 
 cat > $DIRNAME/index.tsx <<EOF

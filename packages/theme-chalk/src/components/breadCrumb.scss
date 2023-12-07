@@ -1,2 +1,16 @@
 @use '../mixins/bem.scss' as *;
 @use '../mixins/function.scss' as *;
+
+@include b(breadCrumb) {
+  display: flex;
+  align-items: center;
+  @include e(title) {
+   font-size: 14px;
+   margin: 6px;
+   color: getCssVar('text-color-primary');
+   &:hover {
+    color: getCssVar('color-primary');
+    cursor: pointer
+   } 
+  }
+}
