@@ -10,23 +10,23 @@ export interface SubMenuProps {
   label: string
   index: string
   childrenCount: number
-  icon?: IconProps
+  icon?: React.ReactNode
   disabled?: boolean
   children?: React.ReactNode
 }
 
 
-const SubMenu: React.FC<SubMenuProps> = React.forwardRef<HTMLLIElement,SubMenuProps>((props,ref) => {
+const SubMenu: React.FC<SubMenuProps> = (props) => {
   const { label, index, icon, children, childrenCount, disabled} = props
   const menuContext = useContext(MenuContext)
   const {textColor,activeTextColor,activeIndex,menuTrigger} = menuContext
   const [isExpand, setIsExpand] = React.useState(false)
   const rotate = isExpand ? 0 : 180
-  const level = useContext(LevelContext)
 
+  const levelContext = useContext(LevelContext)
   const dynamaicSubMenuStyle = {
     color: activeIndex === index ? activeTextColor : textColor,
-    paddingLeft: 20 * level + 'px',
+    padding: `0 20px 0 ${20 * levelContext + 'px'}`,
   }
   const dynamicMenuItemStyle = {
     paddingLeft: 0,
@@ -47,10 +47,10 @@ const SubMenu: React.FC<SubMenuProps> = React.forwardRef<HTMLLIElement,SubMenuPr
   }
   return (
     <Fragment key={index}>
-      <LevelContext.Provider value={level + 1}>
-        <li className='ct-subMenu' onClick={handleSubMenuClick} style={dynamaicSubMenuStyle} ref={ref}>
+      <LevelContext.Provider value={levelContext + 1}>
+        <li className='ct-subMenu' onClick={handleSubMenuClick} style={dynamaicSubMenuStyle}>
           <div className='ct-subMenu__head'>
-            {icon && <Icon {...icon}></Icon>}
+            {icon}
             <span className='ct-subMenu__label'>{label}</span>
           </div>
           <Icon name='ct-icon-arrow-up' prefix='ct-icon' rotate={rotate} size={18}></Icon>
@@ -61,7 +61,7 @@ const SubMenu: React.FC<SubMenuProps> = React.forwardRef<HTMLLIElement,SubMenuPr
       </LevelContext.Provider>
     </Fragment>
   )
-})
+}
 
 if (process.env.NODE_ENV !== 'production') {
   SubMenu.displayName = 'SubMenu';

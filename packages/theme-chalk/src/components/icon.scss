@@ -3,5 +3,5 @@
 @use '../mixins/bem.scss' as *;
 
 @include b(icon) {
-  display: inline-block;
+  cursor: pointer;
 }

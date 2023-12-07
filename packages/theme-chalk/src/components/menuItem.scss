@@ -4,11 +4,10 @@
 @include b(menuItem) {
   height: getCssVar('menu-sub-item-height');
   line-height: getCssVar('menu-sub-item-height');
-  text-align: left;
   list-style: none;
   color: initial;
   display: flex;
-  padding-left: 20px;
+  padding: 0 20px;
   &:hover {
     background-color: getCssVar('menu-hover-bg-color');
   }

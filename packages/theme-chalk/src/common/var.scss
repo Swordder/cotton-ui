@@ -542,7 +542,7 @@ $input: map.merge(
   (
     'text-color': getCssVar('text-color-regular'),
     'border': getCssVar('border'),
-    'hover-border': getCssVar('border-color-hover'),
+    'hover-border': 1px solid getCssVar('color-primary'),
     'focus-border': getCssVar('color-primary'),
     'transparent-border': 0 0 0 1px transparent inset,
     'border-color': getCssVar('border-color'),

@@ -8,10 +8,11 @@ export interface IconProps {
   name: string
   color? : string
   rotate?: number
+  onClick?: () => void
 }
 
 const Icon: React.FC<IconProps> = (props) => {
-  const { prefix, name, size, color, rotate} = props
+  const { prefix, name, size, color, rotate, onClick} = props
   let dynamaicStyle = {}
   const serialSize = size ? isString(size) ? size as string : size + 'px' : '20px'
   dynamaicStyle = {
@@ -21,7 +22,7 @@ const Icon: React.FC<IconProps> = (props) => {
     transform: `rotate(${rotate ?? 0}deg)`
   }
   return (
-    <span className={`ct-icon ${prefix} ${name}`} style={dynamaicStyle}></span>
+    <span className={`ct-icon ${prefix} ${name}`} style={dynamaicStyle} onClick={onClick}></span>
   )
 }
 

@@ -1,14 +1,28 @@
 {
   "id": "3184398",
   "name": "SonicM",
-  "font_family": "iconfont",
-  "css_prefix_text": "icon",
+  "font_family": "ct-icon",
+  "css_prefix_text": "ct-icon-",
   "description": "",
   "glyphs": [
     {
+      "icon_id": "21283609",
+      "name": "清除",
+      "font_class": "clear",
+      "unicode": "e645",
+      "unicode_decimal": 58949
+    },
+    {
+      "icon_id": "7009042",
+      "name": "搜索",
+      "font_class": "search",
+      "unicode": "e741",
+      "unicode_decimal": 59201
+    },
+    {
       "icon_id": "18170456",
       "name": "展开",
-      "font_class": "window-up",
+      "font_class": "arrow-up",
       "unicode": "e9c2",
       "unicode_decimal": 59842
     },
@@ -21,14 +35,14 @@
     },
     {
       "icon_id": "201555",
-      "name": "表情",
-      "font_class": "emotion",
+      "name": "微笑表情",
+      "font_class": "smile",
       "unicode": "e600",
       "unicode_decimal": 58880
     },
     {
       "icon_id": "4347520",
-      "name": "icon_添加",
+      "name": "添加",
       "font_class": "add",
       "unicode": "eb89",
       "unicode_decimal": 60297
@@ -36,42 +50,42 @@
     {
       "icon_id": "17782707",
       "name": "语音",
-      "font_class": "speaking",
+      "font_class": "audio",
       "unicode": "e888",
       "unicode_decimal": 59528
     },
     {
       "icon_id": "163361",
       "name": "探索发现",
-      "font_class": "tansuofaxian",
+      "font_class": "discover",
       "unicode": "e714",
       "unicode_decimal": 59156
     },
     {
       "icon_id": "577364",
       "name": "首页",
-      "font_class": "shouye",
+      "font_class": "home",
       "unicode": "e751",
       "unicode_decimal": 59217
     },
     {
       "icon_id": "2811143",
       "name": "订阅",
-      "font_class": "dingyue",
+      "font_class": "subscribe",
       "unicode": "e63f",
       "unicode_decimal": 58943
     },
     {
       "icon_id": "1304894",
       "name": "展开菜单",
-      "font_class": "zhankaicaidan",
+      "font_class": "expand",
       "unicode": "e624",
       "unicode_decimal": 58916
     },
     {
       "icon_id": "1472549",
       "name": "提示",
-      "font_class": "tishi",
+      "font_class": "tip",
       "unicode": "e63a",
       "unicode_decimal": 58938
     },
@@ -84,22 +98,15 @@
     },
     {
       "icon_id": "1727422",
-      "name": "205设置",
-      "font_class": "shezhi",
+      "name": "设置",
+      "font_class": "setting",
       "unicode": "e8b8",
       "unicode_decimal": 59576
     },
     {
-      "icon_id": "1727442",
-      "name": "213麦克风",
-      "font_class": "maikefeng",
-      "unicode": "e8c2",
-      "unicode_decimal": 59586
-    },
-    {
       "icon_id": "7592579",
-      "name": "24gf-headphones",
-      "font_class": "24gf-headphones",
+      "name": "耳机",
+      "font_class": "headphone",
       "unicode": "ea10",
       "unicode_decimal": 59920
     }

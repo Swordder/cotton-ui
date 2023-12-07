@@ -6,10 +6,11 @@
 @include b(menu) {
   margin: 0;
   padding: 0;
-  width: 240px;
-  @include set-component-css-var('menu', $menu);
+  width: 280px;
+  text-align: left;
   @include e(word) {
     color: skyblue
   }
 }
+@include set-component-css-var('menu', $menu);
 

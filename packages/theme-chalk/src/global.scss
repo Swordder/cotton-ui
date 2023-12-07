@@ -3,7 +3,7 @@
 // CSS3 var
 @use 'common/var' as *;
 @use 'mixins/_var' as *;
-// @use 'mixins/mixins' as *;
+@use 'mixins/function' as *;
 
 // for better performance do not dynamically change the root variable if you really
 // do not need that, since this could introduce recalculation overhead for rendering.

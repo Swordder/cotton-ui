@@ -29,9 +29,14 @@ NAME=$NORMALIZED_NAME
 mkdir -p "$DIRNAME"
 mkdir -p "$DIRNAME/style"
 
+cat > $FILE_PATH/theme-chalk/src/components/$INPUT_NAME.scss <<EOF
+@use '../mixins/bem.scss' as *;
+@use '../mixins/function.scss' as *;
+EOF
+
 cat > $DIRNAME/style/index.css <<EOF
-@import '@cotton-ui/theme-chalk/src/base.scss'
-@import '@cotton-ui/theme-chalk/src/components/${INPUT_NAME}.scss'
+@import '@cotton-ui/theme-chalk/src/base.scss';
+@import '@cotton-ui/theme-chalk/src/components/${INPUT_NAME}.scss;'
 EOF
 
 cat > $DIRNAME/index.tsx <<EOF
@@ -55,7 +60,4 @@ if (process.env.NODE_ENV !== 'production') {
 export default ${NAME}
 EOF
 
-cat > $FILE_PATH/theme-chalk/components/${INPUT_NAME}.css <<EOF
-@use '../mixins/bem.scss' as *;
-@use '../mixins/function.scss' as *;
-EOF
+

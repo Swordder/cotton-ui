@@ -1,9 +1,9 @@
 @font-face {
   font-family: "ct-icon"; /* Project id 3184398 */
-  src: url('iconfont.woff2?t=1700963659962') format('woff2'),
-       url('iconfont.woff?t=1700963659962') format('woff'),
-       url('iconfont.ttf?t=1700963659962') format('truetype'),
-       url('iconfont.svg?t=1700963659962#iconfont') format('svg');
+  src: url('iconfont.woff2?t=1701844899866') format('woff2'),
+       url('iconfont.woff?t=1701844899866') format('woff'),
+       url('iconfont.ttf?t=1701844899866') format('truetype'),
+       url('iconfont.svg?t=1701844899866#ct-icon') format('svg');
 }
 
 .ct-icon {
@@ -14,11 +14,19 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.ct-icon-clear:before {
+  content: "\e645";
+}
+
+.ct-icon-search:before {
+  content: "\e741";
+}
+
 .ct-icon-arrow-up:before {
   content: "\e9c2";
 }
 
-.ct-icon-message:before {
+.ct-icon-xiaoxi:before {
   content: "\e62d";
 }
 
@@ -30,7 +38,7 @@
   content: "\eb89";
 }
 
-.ct-icon-microphone:before {
+.ct-icon-audio:before {
   content: "\e888";
 }
 
@@ -46,7 +54,7 @@
   content: "\e63f";
 }
 
-.ct-icon-expand-menu:before {
+.ct-icon-expand:before {
   content: "\e624";
 }
 
@@ -54,7 +62,7 @@
   content: "\e63a";
 }
 
-.ct-icon-audio:before {
+.ct-icon-yuyin:before {
   content: "\e687";
 }
 
@@ -62,4 +70,7 @@
   content: "\e8b8";
 }
 
+.ct-icon-headphone:before {
+  content: "\ea10";
+}
 

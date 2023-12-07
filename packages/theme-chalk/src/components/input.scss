@@ -1,0 +1,44 @@
+@use '../mixins/bem.scss' as *;
+@use '../mixins/function.scss' as *;
+@use '../common/var' as *;
+@use '../mixins/_var' as *;
+@use 'sass:map';
+
+@include b(input) {
+  @include set-component-css-var('input', $input);
+}
+
+@include b(input) {
+  position: relative;
+  padding: 0 4px;
+  width: 100%;
+  border-radius: getCssVar('input-border-radius');
+  height: map-get($input-height, 'default');
+  line-height: map-get($input-line-height, 'default');
+  display: flex;
+  outline: 1px solid getCssVar('border-color');
+  &:hover {
+    outline: 1px solid getCssVar('color-primary')
+  }
+  &:focus-within {
+    outline: 1px solid getCssVar('color-primary')
+  }
+  @include e(inner) {
+    border: none;
+    outline: none;
+    flex: 1 ;
+    &::placeholder {
+      color: getCssVar('text-color-placeholder')
+    }
+  }
+
+  @include e(wordLimit) {
+    font-size: 12px;
+  }
+
+  @include e(clear) {
+    width: 20px;
+    margin: 0 2px;
+  }
+  
+}
