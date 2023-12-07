@@ -18,7 +18,7 @@ const BreadCrumb: React.FC<BreadCrumbProps> = props => {
             <a className='ct-breadCrumb__title' href={item.to}>{item.label}</a>
             <span className='ct-breadCrumb__seperater'>{seperater}</span>
           </> ):
-          <div className='ct-breadCrumb__title'>{item.label}</div>
+          <a className='ct-breadCrumb__title' href={item.to}>{item.label}</a>
         })
       }
     </div>
