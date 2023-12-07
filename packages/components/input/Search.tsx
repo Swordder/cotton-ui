@@ -1,6 +1,6 @@
 import Input, { InputProps } from "./Input";
 import Icon from '../icon'
-import React, { useEffect, useRef, useState } from "react";
+import React, { useRef } from "react";
 interface SearchProps extends InputProps {
 
 }

@@ -1,9 +1,8 @@
 import './style/index.css'
 import * as React from 'react'
-import Icon from '../Icon'
+import Icon from '../icon'
 import { Fragment, useContext } from 'react'
 import { MenuContext } from '../menu'
-import type { IconProps } from '../Icon'
 import { LevelContext } from '../menu'
 
 export interface SubMenuProps {
@@ -41,9 +40,6 @@ const SubMenu: React.FC<SubMenuProps> = (props) => {
   const handleSubMenuClick = (e) => {
     menuContext.updateActiveIndex(index)
     setIsExpand(isExpand => !isExpand)
-  }
-  const handleMenuItemClick = (a,b) => {
-    console.log(a, b)
   }
   return (
     <Fragment key={index}>

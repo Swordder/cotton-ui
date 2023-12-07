@@ -1,4 +1,3 @@
-import { useRef } from 'react'
 import Icon from '../icon'
 import './style/index.css'
 import * as React from 'react'

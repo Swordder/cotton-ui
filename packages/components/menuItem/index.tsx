@@ -1,9 +1,7 @@
 import './style/index.css'
 import * as React from 'react'
 import { Fragment, useContext } from 'react'
-import Icon from '../Icon'
 import { MenuContext } from '../menu'
-import type { IconProps } from '../Icon'
 import { LevelContext } from '../menu'
 
 export interface MenuItemProps {

@@ -14,7 +14,7 @@ export interface IconProps {
 const Icon: React.FC<IconProps> = (props) => {
   const { prefix, name, size, color, rotate, onClick} = props
   let dynamaicStyle = {}
-  const serialSize = size ? isString(size) ? size as string : size + 'px' : '20px'
+  const serialSize = size ? isString(size) ? size as string : size + 'px' : 'inherit'
   dynamaicStyle = {
     ...dynamaicStyle,
     fontSize: serialSize,
