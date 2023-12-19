@@ -1,9 +1,9 @@
 @font-face {
   font-family: "ct-icon"; /* Project id 3184398 */
-  src: url('iconfont.woff2?t=1701844899866') format('woff2'),
-       url('iconfont.woff?t=1701844899866') format('woff'),
-       url('iconfont.ttf?t=1701844899866') format('truetype'),
-       url('iconfont.svg?t=1701844899866#ct-icon') format('svg');
+  src: url('iconfont.woff2?t=1702955286505') format('woff2'),
+       url('iconfont.woff?t=1702955286505') format('woff'),
+       url('iconfont.ttf?t=1702955286505') format('truetype'),
+       url('iconfont.svg?t=1702955286505#ct-icon') format('svg');
 }
 
 .ct-icon {
@@ -12,6 +12,10 @@
   font-style: normal;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.ct-icon-loading:before {
+  content: "\e83d";
 }
 
 .ct-icon-clear:before {

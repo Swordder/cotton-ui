@@ -1,28 +1,28 @@
 import './style/index.css'
 import React from 'react'
-import { isString } from '@cotton-ui/utils'
+import { getMergedCls, isString } from '@cotton-ui/utils'
 
 export interface IconProps {
   size?: string | number
-  prefix : string
+  prefix? : string
   name: string
   color? : string
   rotate?: number
+  className?: string
   onClick?: () => void
 }
 
 const Icon: React.FC<IconProps> = (props) => {
-  const { prefix, name, size, color, rotate, onClick} = props
-  let dynamaicStyle = {}
+  const { prefix, name, size, color, rotate, className, onClick} = props
   const serialSize = size ? isString(size) ? size as string : size + 'px' : 'inherit'
-  dynamaicStyle = {
-    ...dynamaicStyle,
+  const dynamaicStyle = {
     fontSize: serialSize,
-    color: color || 'initial',
+    color: color,
     transform: `rotate(${rotate ?? 0}deg)`
   }
+  const mergedCls = getMergedCls('ct-icon', prefix, name, className)
   return (
-    <span className={`ct-icon ${prefix} ${name}`} style={dynamaicStyle} onClick={onClick}></span>
+    <span className={mergedCls} style={dynamaicStyle} onClick={onClick}></span>
   )
 }
 

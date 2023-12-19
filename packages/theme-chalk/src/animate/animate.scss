@@ -22,7 +22,12 @@
     transform: translate3d(0, 10px, 0);
   }
 }
-.dropdown {
-  // animation: dropdown 1s;
-  color: skyblue
+
+@keyframes rotating {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }

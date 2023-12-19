@@ -4,4 +4,9 @@
 
 @include b(icon) {
   cursor: pointer;
+  color: inherit;
+  &.is-loading {
+    animation: rotating 2s linear infinite;
+  }
 }
+

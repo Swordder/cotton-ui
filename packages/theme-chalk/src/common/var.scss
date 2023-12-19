@@ -35,6 +35,9 @@ $colors: map.deep-merge(
     'info': (
       'base': #64748B,
     ),
+    'custom': (
+      'base': inherit
+    )
   ),
   $colors
 );
