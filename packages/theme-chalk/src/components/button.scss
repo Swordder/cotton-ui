@@ -57,7 +57,16 @@
     border-radius: 50%;
     width: 32px;
   }
-  &.is-loading {}
+  &.is-loading {
+    position: relative;
+    pointer-events: none;
+  }
+  .is-loading {
+    animation: rotating 2s linear infinite;
+    & + .ct-button__content {
+      margin-left: 6px;
+    }
+  }
   @each $type in (primary,success,warning,danger,error,info,custom) {
     @include m($type) {
       #{getCssVarName('button','hover-bg-color')}: getCssVar('color',$type,'light-3');
@@ -85,9 +94,6 @@
       }
     }
   }
-  .ct-icon {
-    margin-right: 6px;
-  }
   @include m(large) {
     height: 40px;
     padding: map-get($map: $button-padding-vertical, $key: large) map-get($map: $button-padding-horizontal, $key: large);
@@ -107,3 +113,4 @@
     }
   }
 }
+

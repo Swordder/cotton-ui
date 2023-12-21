@@ -15,13 +15,15 @@
   border-radius: getCssVar('input-border-radius');
   height: map-get($input-height, 'default');
   line-height: map-get($input-line-height, 'default');
-  display: flex;
-  outline: 1px solid getCssVar('border-color');
+  display: inline-flex;
+  border: 1px solid getCssVar('border-color');
+  vertical-align: middle;
+  outline: none;
   &:hover {
-    outline: 1px solid getCssVar('color-primary')
+    border: 1px solid getCssVar('color-primary');
   }
   &:focus-within {
-    outline: 1px solid getCssVar('color-primary')
+    border: 1px solid getCssVar('color-primary')
   }
   @include e(inner) {
     border: none;

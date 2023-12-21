@@ -1,6 +1,6 @@
 import './style/index.css'
 import * as React from 'react'
-import { extractNonEmptyField, getMergedCls, tinycolor } from '@cotton-ui/utils'
+import { getMergedCls, tinycolor, useNamespace } from '@cotton-ui/utils'
 import Icon from '../icon'
 
 export interface ButtonProps {
@@ -11,23 +11,19 @@ export interface ButtonProps {
   round?: boolean
   circle?:boolean
   disabled?: boolean
-  loadingIcon?: React.ReactNode
+  loadingIcon?:React.ReactNode
   loading?: boolean
+  className?: string
   children?: React.ReactNode
   onClick?: React.MouseEventHandler<HTMLButtonElement>
 }
 
 const Button: React.FC<ButtonProps> = props => {
-  const {size,type,plain,color,round,circle,disabled,loadingIcon,loading,children,onClick} = props
-  const sizeCls = size ? 'ct-button--' + size : ''
-  const typeCls = type ? 'ct-button--' + type : ''
-  const plainCls = plain ? 'is-plain' : ''
-  const roundCls = round ? 'is-round' : ''
-  const circleCls = circle ? 'is-circle' : ''
-  const disabledCls = disabled ? 'is-disabled' : ''
-  const loadingCls = loading ? 'is-loading' : ''
-  const mergedCls = getMergedCls('ct-button', sizeCls,typeCls,plainCls,roundCls,circleCls,disabledCls,loadingCls)
-  const buttonRef = React.useRef<HTMLButtonElement>(null)
+  const { size, type, plain, color, round, circle, disabled, loadingIcon, loading, className, children, onClick } = props
+
+  const {b, e, m, is} = useNamespace('button')
+  const mergedCls = getMergedCls(b, m(size),m(type),is('plain',plain),is('round',round),is('circle',circle),is('disabled',disabled),is('loading',loading),className)
+
   const handleClick = (e) => {
     if (disabled) return 
     onClick?.(e)
@@ -64,13 +60,13 @@ const Button: React.FC<ButtonProps> = props => {
       '--ct-button-disabled-bg-color': disabledBgColor
     }
   }
-  const customButtonStyles = getCustomButtonStyles() as React.CSSProperties
+  const customButtonStyles = React.useMemo(() => getCustomButtonStyles(), [color])  as React.CSSProperties
   
-  const LoadingIcon = loadingIcon ?? <Icon name='ct-icon-loading' className={loading ? 'is-loading' : ''}></Icon>
+  const LoadingIcon = loadingIcon ?? <Icon name='ct-icon-loading'></Icon>
   return (
-    <button className={mergedCls}  ref={buttonRef} onClick={handleClick} style={customButtonStyles}>
-      {loading && LoadingIcon}
-      {children}
+    <button className={mergedCls} onClick={handleClick} style={customButtonStyles}>
+      <div className={is('loading',loading)}>{loading && LoadingIcon}</div>
+      <div className={e('content')}>{children}</div>
     </button>
   )
 }

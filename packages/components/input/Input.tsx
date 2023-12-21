@@ -1,3 +1,4 @@
+import { getMergedCls, useNamespace } from '@cotton-ui/utils'
 import Icon from '../icon'
 import './style/index.css'
 import * as React from 'react'
@@ -19,9 +20,14 @@ export interface InputProps {
   minLength?: number
   onChange?:(v:string) => void
   onEnter?: (v:string) => void
+  className?: string
 } 
 const Input = React.forwardRef<HTMLInputElement,InputProps>((props,ref) => {
-  const { prepend, append, showWordLimit, clearable, formatter, onEnter, ...inputAttribute } = props
+  const { className, prepend, append, showWordLimit, clearable, formatter, onEnter, ...inputAttribute } = props
+
+  const {b, e} = useNamespace('input')
+  const mergedCls = getMergedCls(b, className)
+
   const { value, onChange,...otherInputAttribute  } = inputAttribute
   const {maxLength} = otherInputAttribute
   const inputEl = document.getElementById('ct-input__inner') as HTMLInputElement
@@ -31,27 +37,28 @@ const Input = React.forwardRef<HTMLInputElement,InputProps>((props,ref) => {
 
   // 清除输入
   const handleClear = () => {
+    console.log(ref,'ref')
     inputEl.value = ''
     setText('')
     onChange?.(inputEl.value)
   }
-  const clearIcon = <Icon name="ct-icon-clear" prefix="ct-icon" size={16} color="var(--ct-text-color-placeholder)" onClick={handleClear}></Icon>
+  const clearIcon = <Icon name="ct-icon-clear" size={16} color="var(--ct-text-color-placeholder)" onClick={handleClear}></Icon>
 
   const handleChange = e => {
     onChange?.(e.target.value) ?? setText(e.target.value)
   }
 
-  const handleKeyDown = (e) => {
+  const handleKeyDown = (e) => {    
     if (e.key === 'Enter') onEnter?.(e.target.value)
   }
   
   return (
-    <div className='ct-input'>
-      <div className='ct-input__prepend'>{prepend}</div>
-      <input id='ct-input__inner' className='ct-input__inner' value={text} ref={ref} onChange={handleChange} onKeyDown={handleKeyDown} {...otherInputAttribute}/>
-      {clearable && <div className='ct-input__clear'>{text && clearIcon}</div>}
-      {(showWordLimit && maxLength) && <div className='ct-input__wordLimit'>{`${text?.length} / ${maxLength}`}</div>}
-      <div className='ct-input__append'>{append}</div>
+    <div className={mergedCls}>
+      <div className={e('prepend')}>{prepend}</div>
+      <input id='ct-input__inner' className={e('inner')} value={text} ref={ref} onChange={handleChange} onKeyDown={handleKeyDown} {...otherInputAttribute}/>
+      {clearable && <div className={e('clear')}>{text && clearIcon}</div>}
+      {(showWordLimit && maxLength) && <div className={e('wordLimit')}>{`${text?.length} / ${maxLength}`}</div>}
+      <div className={e('append')}>{append}</div>
     </div>
   )
 })

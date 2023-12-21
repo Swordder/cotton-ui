@@ -1,0 +1,59 @@
+@use '../mixins/bem.scss' as *;
+@use '../mixins/function.scss' as *;
+@use '../common/var.scss' as *;
+@use '../mixins/_var' as *;
+
+@include b(tag) {
+  @include set-component-css-var('tag',$tag);
+  @include css-var-from-global(('tag','border-color'),'border-color');
+  @include css-var-from-global(('tag','bg-color'),'fill-color-blank');
+  --ct-tag-close-color: inherit;
+  --ct-tag-close-hover-bg-color: #666;
+  --ct-tag-close-hover-color: #fff;
+}
+@include b(tag) {
+  background: var(--ct-tag-bg-color);
+  border: 1px solid var(--ct-tag-border-color);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  vertical-align: middle;
+  font-size: getCssVar('tag','font-size');
+  border-radius: getCssVar('tag','border-radius');
+  color: getCssVar('text-color','primary');
+  height: map-get($map: $tag-height, $key: 'default');
+  padding: 0 map-get($map: $tag-padding, $key: 'default');
+  line-height: 1;
+  &.is-round {
+    border-radius: getCssVar('tag','border-radius-rounded');
+  }
+  @include e(close) {
+    border-radius: 50%;
+    margin-left: 6px;
+    color: var(--ct-tag-close-color);
+    &:hover {
+      background: var(--ct-tag-close-hover-bg-color);
+      color: var(--ct-tag-close-hover-color)
+    }
+  }
+  @include e(content) {
+
+  }
+  @each $type in (primary,success,warning,danger,error,info,custom) {
+    @include m($type) {
+      @include set-css-var-value('tag-bg-color',getCssVar('color',$type));
+      @include set-css-var-value('tag-border-color',getCssVar('color',$type));
+      @include set-css-var-value('tag-close-color',#fff);
+      @include set-css-var-value('tag-close-hover-bg-color',getCssVar('color',$type,'light-3'));
+      color: #fff;
+      &.is-plain {
+        @include set-css-var-value('tag-bg-color',#fff);
+        @include set-css-var-value('tag-close-color',getCssVar('color',$type));
+        @include set-css-var-value('tag-close-hover-bg-color',getCssVar('color',$type));
+        @include set-css-var-value('tag-close-hover-color',#fff);
+        color: var(--ct-tag-border-color);
+      }
+    }
+  }
+ 
+}

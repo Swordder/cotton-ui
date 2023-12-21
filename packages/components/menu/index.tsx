@@ -1,3 +1,4 @@
+import { getMergedCls, useNamespace } from '@cotton-ui/utils'
 import './style/index.css'
 import * as React from 'react'
 import { createContext } from 'react'
@@ -10,6 +11,7 @@ export interface MenuProps {
   activeTextColor?: string
   defaultActiveIndex?: string
   menuTrigger?: 'click' | 'hover'
+  className?: string
   children: React.ReactNode
 }
 
@@ -31,8 +33,11 @@ const Menu: React.FC<MenuProps> = props => {
     activeTextColor = '#5D5FEF',
     defaultActiveIndex = '',
     menuTrigger = 'click',
+    className,
     children,
   } = props
+  const {b} = useNamespace('menu')
+  const mergedCls = getMergedCls(b,className)
   const [activeIndex, setActiveIndex] = React.useState(defaultActiveIndex)
   const menuContext = React.useContext(MenuContext)
   const contextValue = {
@@ -45,7 +50,7 @@ const Menu: React.FC<MenuProps> = props => {
   }
 
   return (
-    <ul className='ct-menu' style={{backgroundColor,width}}>
+    <ul className={mergedCls} style={{backgroundColor,width}}>
         <MenuContext.Provider value={contextValue}>{children}</MenuContext.Provider>
     </ul>
   )

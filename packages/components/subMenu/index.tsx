@@ -4,6 +4,7 @@ import Icon from '../icon'
 import { Fragment, useContext } from 'react'
 import { MenuContext } from '../menu'
 import { LevelContext } from '../menu'
+import { getMergedCls, useNamespace } from '@cotton-ui/utils'
 
 export interface SubMenuProps {
   label: string
@@ -11,14 +12,20 @@ export interface SubMenuProps {
   childrenCount: number
   icon?: React.ReactNode
   disabled?: boolean
+  className?: string
   children?: React.ReactNode
 }
 
 
 const SubMenu: React.FC<SubMenuProps> = (props) => {
-  const { label, index, icon, children, childrenCount, disabled} = props
+  const { label, index, icon, children, childrenCount, disabled, className} = props
+
+  const {b, e} = useNamespace('menuItem')
+  const mergedCls = getMergedCls(b,className)
+  
   const menuContext = useContext(MenuContext)
   const {textColor,activeTextColor,activeIndex,menuTrigger} = menuContext
+
   const [isExpand, setIsExpand] = React.useState(false)
   const rotate = isExpand ? 0 : 180
 
@@ -44,12 +51,12 @@ const SubMenu: React.FC<SubMenuProps> = (props) => {
   return (
     <Fragment key={index}>
       <LevelContext.Provider value={levelContext + 1}>
-        <li className='ct-subMenu' onClick={handleSubMenuClick} style={dynamaicSubMenuStyle}>
-          <div className='ct-subMenu__head'>
+        <li className={mergedCls} onClick={handleSubMenuClick} style={dynamaicSubMenuStyle}>
+          <div className={e('head')}>
             {icon}
-            <span className='ct-subMenu__label'>{label}</span>
+            <span className={e('label')}>{label}</span>
           </div>
-          <Icon name='ct-icon-arrow-up' prefix='ct-icon' rotate={rotate} size={18}></Icon>
+          <Icon name='ct-icon-arrow-up' rotate={rotate} size={18}></Icon>
         </li>
         <ul style={dynamicMenuItemStyle}>
           {children}

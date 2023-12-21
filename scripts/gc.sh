@@ -32,6 +32,8 @@ mkdir -p "$DIRNAME/style"
 cat > $FILE_PATH/theme-chalk/src/components/$INPUT_NAME.scss <<EOF
 @use '../mixins/bem.scss' as *;
 @use '../mixins/function.scss' as *;
+@use '../common/var.scss' as *;
+@use '../mixins/_var' as *;
 EOF
 
 cat > $DIRNAME/style/index.css <<EOF

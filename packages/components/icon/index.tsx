@@ -1,6 +1,6 @@
 import './style/index.css'
 import React from 'react'
-import { getMergedCls, isString } from '@cotton-ui/utils'
+import { getMergedCls, isString, useNamespace } from '@cotton-ui/utils'
 
 export interface IconProps {
   size?: string | number
@@ -20,7 +20,8 @@ const Icon: React.FC<IconProps> = (props) => {
     color: color,
     transform: `rotate(${rotate ?? 0}deg)`
   }
-  const mergedCls = getMergedCls('ct-icon', prefix, name, className)
+  const {b} = useNamespace('icon')
+  const mergedCls = getMergedCls(b, prefix, name, className)
   return (
     <span className={mergedCls} style={dynamaicStyle} onClick={onClick}></span>
   )
