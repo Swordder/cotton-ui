@@ -1,4 +1,5 @@
 @use '../mixins/bem.scss' as *;
+@use '../mixins/function.scss' as *;
 @use '../mixins/_var' as *;
 @use '../common/var' as *;
 
@@ -9,7 +10,7 @@
   width: 280px;
   text-align: left;
   @include e(word) {
-    color: skyblue
+    color: getCssVar('text-color','primary')
   }
 }
 @include set-component-css-var('menu', $menu);
