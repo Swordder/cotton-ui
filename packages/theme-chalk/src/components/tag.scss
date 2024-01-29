@@ -24,6 +24,9 @@
   height: map-get($map: $tag-height, $key: 'default');
   padding: 0 map-get($map: $tag-padding, $key: 'default');
   line-height: 1;
+  &+& {
+    margin-left: 12px;
+  }
   &.is-round {
     border-radius: getCssVar('tag','border-radius-rounded');
   }

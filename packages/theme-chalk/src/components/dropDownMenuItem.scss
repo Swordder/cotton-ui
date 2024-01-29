@@ -17,6 +17,7 @@
   padding: 8px 14px;
   line-height: 1;
   cursor: pointer;
+  text-align: left;
   transition: all .2s ease;
   &:hover {
     background: getCssVar('dropDownMenuItem-hover-bg-color');

@@ -1,0 +1,39 @@
+@use '../mixins/bem.scss' as *;
+@use '../mixins/function.scss' as *;
+@use '../common/var.scss' as *;
+@use '../mixins/_var' as *;
+@use '../animate/animate.scss' as *;
+
+@include b(select) {
+  @include set-component-css-var('select', $select)
+}
+@include b(select) {
+  width: fit-content;
+  @include e(trigger) {
+    font-size: getCssVar('font-size-base');
+    padding: 3px 6px;
+    border: 1px solid getCssVar('border-color');
+    border-radius: getCssVar('border-radius-base');
+    width: 240px;
+    text-align: left;
+    color: getCssVar('text-color','placeholder');
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    flex: 1;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    cursor: pointer;
+    &:hover {
+      border-color: getCssVar('border-color-hover');
+    }
+    .ct-icon:last-child {
+      margin-left: auto;
+      transition: transform .3s ease;
+    }
+  }
+  .ct-dropDownMenu__wrapper {
+    min-width: 100%;
+  }
+}

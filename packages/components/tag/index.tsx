@@ -11,12 +11,13 @@ export interface TagProps {
   closable?: boolean
   children?: React.ReactNode
   color?: string
-  onClose?: React.MouseEventHandler<HTMLDivElement>
+  onClose?: (event: React.MouseEvent<HTMLDivElement, MouseEvent>, ...args: any[]) => void
+  onClick?: React.MouseEventHandler<HTMLDivElement>
   className?: string
 }
 
 const Tag: React.FC<TagProps> = props => {
-  const {type, size, round, plain, closable, color, children, onClose, className} = props
+  const {type, size, round, plain, closable, color, children, onClick, onClose, className} = props
 
   const {b, e, m, is} = useNamespace('tag')
   const mergedCls = getMergedCls(b, m(type), m(size), is('round',round), is('plain',plain), className)
@@ -28,13 +29,13 @@ const Tag: React.FC<TagProps> = props => {
       return tinycolor.mix(color,'#fff',amount)?.toRgbString()
     }
     if (color) {
-          textColor = closeColor = closeHoverColor = '#fff'
-          borderColor = bgColor = color
-          closeHoverBgColor = getMixedColor(30)
-          if (plain) {
-            textColor = borderColor = closeColor = closeHoverBgColor = color
-            bgColor = closeHoverColor = '#fff'
-          }
+      textColor = closeColor = closeHoverColor = '#fff'
+      borderColor = bgColor = color
+      closeHoverBgColor = getMixedColor(30)
+      if (plain) {
+        textColor = borderColor = closeColor = closeHoverBgColor = color
+        bgColor = closeHoverColor = '#fff'
+      }
     }
     return {
       '--ct-tag-border-color': borderColor,
@@ -49,9 +50,9 @@ const Tag: React.FC<TagProps> = props => {
 
   const CloseIcon = <Icon name='ct-icon-close'></Icon>
   return (
-    <div className={mergedCls} onClick={onClose} style={customTagStyles}>
+    <div className={mergedCls} onClick={onClick} style={customTagStyles}>
       <div className={e('content')}>{children}</div>
-      {closable && <div className={e('close')}>{CloseIcon}</div>}
+      {closable && <div className={e('close')} onClick={event => onClose?.(event)}>{CloseIcon}</div>}
     </div>
   )
 }

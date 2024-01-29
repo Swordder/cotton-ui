@@ -3,6 +3,9 @@
 @use '../mixins/_var' as *;
 @use '../common/var' as *;
 
+@include b(menu) {
+  @include set-component-css-var('menu', $menu);
+}
 
 @include b(menu) {
   margin: 0;
@@ -13,5 +16,4 @@
     color: getCssVar('text-color','primary')
   }
 }
-@include set-component-css-var('menu', $menu);
 

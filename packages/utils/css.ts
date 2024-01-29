@@ -10,8 +10,9 @@ export const useNamespace = (block) => {
   const b = namespace + blockSeperater + block
   const e = (element) => element ? b + elementSeperater + element : ''
   const m = (modifier) => modifier ? b + modifySeperater + modifier : ''
+  const em = (element, modifier) => b + elementSeperater + element + modifySeperater + modifier
   const is = (key:string, status?:boolean) => status ? 'is-' + key : ''
   return {
-    b,e,m,is
+    b,e,m,em,is,
   }
 }

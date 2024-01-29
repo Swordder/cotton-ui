@@ -12,7 +12,7 @@ export interface InputProps {
   value?: string
   placeholder?: string
   size?: number
-  readonly?: boolean
+  readOnly?: boolean
   required?: boolean 
   autofocus?: boolean
   autocomplete?: boolean

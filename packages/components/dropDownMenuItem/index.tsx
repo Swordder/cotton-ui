@@ -5,30 +5,30 @@ import { Fragment } from 'react'
 import { DropDownMenuContext } from '../dropDownMenu'
 
 export interface DropDownMenuItemProps {
-  index: string
+  metaData: string | number | object
   icon?: React.ReactNode
   className?: string
   children?: React.ReactNode
 }
 
 const DropDownMenuItem: React.FC<DropDownMenuItemProps> = props => {
-  const { index, icon, className, children } = props
+  const { metaData, icon, className, children,  } = props
 
   const {b, e} = useNamespace('dropDownMenuItem')
   const mergedCls = getMergedCls(b, className)
 
   const dropDownMenuContext = React.useContext(DropDownMenuContext)
   const handleClick = (e) => {
-    dropDownMenuContext.handleExpand!(pre => !pre)
-    dropDownMenuContext.handleItemClick?.(e,index)
+    dropDownMenuContext.handleExpand!()
+    dropDownMenuContext.handleItemClick?.(metaData)
   }
   return (
-    <Fragment key={index}>
+    <>
       <li className={mergedCls} style={dropDownMenuContext.customDropDownMenuItemStyles} onClick={handleClick}>
         {icon && <div className={e('icon')}></div>}
         {children}
         </li>
-    </Fragment>
+    </>
   )
 }
 

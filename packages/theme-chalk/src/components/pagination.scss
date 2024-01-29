@@ -2,3 +2,14 @@
 @use '../mixins/function.scss' as *;
 @use '../common/var.scss' as *;
 @use '../mixins/_var' as *;
+
+@include b(pagination) {
+  @include set-component-css-var('pagination', $pagination)
+}
+
+@include b(pagination) {
+  display: flex;
+  color: getCssVar('pagination','text-color');
+  font-size: getCssVar('pagination','font-size')
+
+}

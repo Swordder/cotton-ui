@@ -1,33 +1,27 @@
 import './style/index.css'
 import * as React from 'react'
-import { extractNonEmptyField, getMergedCls, tinycolor, useNamespace }from '@cotton-ui/utils'
+import { getMergedCls, tinycolor, useNamespace }from '@cotton-ui/utils'
 import { createContext } from 'react'
+import { on } from 'events'
 
 export interface DropDownMenuProps {
   dropDownTargrt: React.ReactNode
   children: React.ReactNode
-  itemCount: number
+  maxHeight?: number
   hideOnClick?: boolean
   color?: string
   className?:string
-  onItemClick?: (e: Event,index:string) => void
+  onVisibleChange?: (visible: boolean) => void
+  onItemClick?: (index:string | number | object) => void
 }
 
-// export const DropDownMenuContext = createContext({
-//   customDropDownMenuItemStyles: {},
-//   handleExpand: (fn: (isExpand:boolean) => boolean) => {},
-//   handleItemClick: (e: Event,index:string) => {}
-// })
 export const DropDownMenuContext = createContext<{
   customDropDownMenuItemStyles?: any
-  handleExpand?: (fn: (isExpand: boolean) => boolean) => void
-  handleItemClick?: (e: Event, index: string) => void
-}>({
-  // customDropDownMenuItemStyles: {},
-  // handleExpand: (fn: (isExpand:boolean) => boolean) => {},
-})
+  handleExpand?: () => void
+  handleItemClick?: (index: string | number | object) => void
+}>({})
 const DropDownMenu: React.FC<DropDownMenuProps> = props => {
-  const {dropDownTargrt, children, itemCount, hideOnClick, color, className, onItemClick} = props
+  const {dropDownTargrt, children, maxHeight, hideOnClick, color, className, onVisibleChange, onItemClick} = props
 
   const {b, e} = useNamespace('dropDownMenu')
   const mergedCls = getMergedCls(b, className)
@@ -52,21 +46,25 @@ const DropDownMenu: React.FC<DropDownMenuProps> = props => {
 
   const [isExpand, setIsExpand] = React.useState(false)
 
-  // const dropDownMenuContext = React.useContext('')
   const contextValue = {
     customDropDownMenuItemStyles,
-    handleExpand: setIsExpand,
+    handleExpand: function() {
+      onVisibleChange?.(!isExpand)
+      setIsExpand(pre => !pre)
+    } ,
     handleItemClick: onItemClick
   } 
 
-  const dynamicStyle = {
-    maxHeight: isExpand ? itemCount * 32 + 'px' : 0,
-    overflow: isExpand ? 'visible' : 'hidden',
-    padding: isExpand ? '4px 0' : 0,
+  const dynamicStyle = isExpand ? {
+    maxHeight: maxHeight + 'px',
+    transform: 'translate(-50%,100%) scaleY(1)',
+    opacity: 1
+  } : {
+    maxHeight: maxHeight + 'px',
   }
   return (
     <div className={mergedCls}>
-      <div onClick={() => contextValue.handleExpand!(pre => !pre)}>{dropDownTargrt}</div>
+      <div onClick={contextValue.handleExpand}>{dropDownTargrt}</div>
       <ul className={e('wrapper')} style={dynamicStyle}>
         <DropDownMenuContext.Provider value={contextValue}>
           {children}

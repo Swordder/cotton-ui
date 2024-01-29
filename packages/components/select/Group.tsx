@@ -1,0 +1,1 @@
+const MultipleTrigger = <div></div>

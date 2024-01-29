@@ -1,4 +1,4 @@
-@keyframes dropdown {
+@keyframes tremble {
   from,
   to {
     -webkit-transform: translate3d(0, 0, 0);
@@ -23,11 +23,31 @@
   }
 }
 
+@keyframes dropdown {
+  from {
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
 @keyframes rotating {
   0% {
     transform: rotate(0);
   }
   100% {
     transform: rotate(360deg);
+  }
+}
+
+@keyframes zoomIn {
+  from {
+    opacity: 0;
+    transform: scale3d(0.3, 0.3, 0.3);
+  }
+  to {
+    opacity: 1;
   }
 }
