@@ -8,7 +8,7 @@ import { getMergedCls, useNamespace } from '@cotton-ui/utils'
 
 export interface SubMenuProps {
   label: string
-  index: string
+  index: string | number
   childrenCount: number
   icon?: React.ReactNode
   disabled?: boolean
@@ -20,7 +20,7 @@ export interface SubMenuProps {
 const SubMenu: React.FC<SubMenuProps> = (props) => {
   const { label, index, icon, children, childrenCount, disabled, className} = props
 
-  const {b, e} = useNamespace('menuItem')
+  const {b, e} = useNamespace('subMenu')
   const mergedCls = getMergedCls(b,className)
   
   const menuContext = useContext(MenuContext)
@@ -45,7 +45,7 @@ const SubMenu: React.FC<SubMenuProps> = (props) => {
 
 
   const handleSubMenuClick = (e) => {
-    menuContext.updateActiveIndex(index)
+    menuContext.updateActiveIndex?.(index)
     setIsExpand(isExpand => !isExpand)
   }
   return (

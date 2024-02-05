@@ -10,7 +10,6 @@
 @include b(menu) {
   margin: 0;
   padding: 0;
-  width: 280px;
   text-align: left;
   @include e(word) {
     color: getCssVar('text-color','primary')

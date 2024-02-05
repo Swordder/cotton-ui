@@ -9,19 +9,20 @@ export interface MenuProps {
   backgroundColor?: string
   textColor?: string
   activeTextColor?: string
-  defaultActiveIndex?: string
+  defaultActiveIndex?: string | number
   menuTrigger?: 'click' | 'hover'
   className?: string
   children: React.ReactNode
 }
 
-export const MenuContext = createContext({
-  textColor: '',
-  activeTextColor: '',
-  activeIndex: '',
-  menuTrigger: '',
-  updateActiveIndex: (index: string) => {}
-})
+export const MenuContext = createContext<{
+  textColor?: string
+  activeTextColor?: string
+  activeIndex?: string | number
+  menuTrigger?: 'click' | 'hover'
+  updateActiveIndex?: (index: string | number) => void
+} >({})
+
 export const LevelContext = React.createContext(1)
 
 const Menu: React.FC<MenuProps> = props => {

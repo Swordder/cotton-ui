@@ -1,0 +1,31 @@
+@use '../mixins/bem.scss' as *;
+@use '../mixins/function.scss' as *;
+@use '../common/var.scss' as *;
+@use '../mixins/_var' as *;
+
+@include b(row) {
+  display: flex;
+}
+$justify-list: flex-start flex-end flex-center space-around space-between space-evenly;
+@each $justify in $justify-list {
+  .is-#{$justify} {
+    @if ($justify == 'flex-center') {
+      justify-content: center;
+    } @else {
+      justify-content: $justify;
+    }
+  }
+}
+$align-list:  start, align-center, end, baseline stretch;
+@each $align in $align-list {
+  .is-#{$align} {
+    @if ($align == 'align-center') {
+      align-items: center;
+    } @else {
+      align-items: $align;
+    }
+  }
+}
+.is-wrap {
+  flex-wrap: wrap;
+}

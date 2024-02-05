@@ -7,11 +7,11 @@ import { getMergedCls, useNamespace } from '@cotton-ui/utils'
 
 export interface MenuItemProps {
   label: string
-  index: string
+  index: string | number
   icon?: React.ReactNode
   rightSlot?: React.ReactNode
   className?: string
-  onClick?: (label:string, index: string) => void
+  onClick?: (label:string, index: string | number) => void
 }
 
 
@@ -26,7 +26,7 @@ const MenuItem: React.FC<MenuItemProps> = props => {
   const levelContext = useContext(LevelContext)
 
   const handleClick: React.MouseEventHandler = e => {
-    menuContext.updateActiveIndex(index)
+    menuContext.updateActiveIndex?.(index)
     e.stopPropagation()
     onClick && onClick(label,index)
   }

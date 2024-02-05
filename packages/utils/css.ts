@@ -1,3 +1,5 @@
+import { Falsy } from "./typings/utils"
+
 export const getMergedCls = (...args: (string | undefined)[]) => {
   return args.filter(Boolean).join(' ')
 }
@@ -11,7 +13,7 @@ export const useNamespace = (block) => {
   const e = (element) => element ? b + elementSeperater + element : ''
   const m = (modifier) => modifier ? b + modifySeperater + modifier : ''
   const em = (element, modifier) => b + elementSeperater + element + modifySeperater + modifier
-  const is = (key:string, status?:boolean) => status ? 'is-' + key : ''
+  const is = (key:string, status?:string | boolean) => status ? 'is-' + key : ''
   return {
     b,e,m,em,is,
   }

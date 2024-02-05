@@ -8,10 +8,14 @@
   color: initial;
   display: flex;
   padding: 0 20px;
+  font-size: getCssVar('font-size-base');
   &:hover {
     background-color: getCssVar('menu-hover-bg-color');
   }
   @include e(title) {
     margin-right: auto;
+  }
+  .ct-icon + .ct-menuItem__title {
+    margin-left: 8px
   }
 }

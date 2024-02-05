@@ -87,3 +87,10 @@
 
   @return $name;
 }
+
+@function genUtils($prefix,$propertyname,$map) {
+  @each $key, $value in $map {
+    $utils: map-merge($utils, ($prefix + '-' + $key: $value));
+  }
+  @return $utils;
+}

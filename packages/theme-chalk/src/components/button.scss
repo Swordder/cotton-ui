@@ -36,6 +36,9 @@
     border: 1px solid getCssVar('button','hover-border-color');
     outline: none;
   }
+  &:active {
+    background: getCssVar('color','primary','dark-2');
+  }
   &.is-plain {
     #{getCssVarName('button','hover-bg-color')}: #fff;
     #{getCssVarName('button','hover-border-color')}: getCssVar('color-primary');

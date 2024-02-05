@@ -1,0 +1,12 @@
+@mixin compose($classes...) {
+  @at-root {
+    #{&} {
+      @each $class in $classes {
+        @debug $class;
+        @extend .#{$class};
+      }
+    }
+  }
+}
+
+

@@ -6,17 +6,12 @@ import Input from '../input'
 import Tag from '../tag'
 import * as React from 'react'
 import Icon from '../icon'
-import { stat } from 'fs'
 
-interface SelectItem {
-  label: string
-  value: string
-}
-type SelectedValue = string[] | number[] | SelectItem[]
+type SelectedValue = string[] | number[] | object[]
 export interface SelectProps {
   value?: SelectedValue
   placeholder?: string
-  options: SelectItem[] | string[] | number[]
+  options: object[] | string[] | number[]
   valueKey?: string
   labelKey?: string
   clearable?: boolean

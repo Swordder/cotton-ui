@@ -19,6 +19,8 @@
   border: 1px solid getCssVar('border-color');
   vertical-align: middle;
   outline: none;
+  box-sizing: border-box;
+  min-width: 170px;
   &:hover {
     border: 1px solid getCssVar('color-primary');
   }
