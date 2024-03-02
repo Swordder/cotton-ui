@@ -2,8 +2,8 @@ import { getMergedCls, useNamespace } from '@cotton-ui/utils'
 import './style/index.css'
 import * as React from 'react'
 
-type Justify = 'flex-start' | 'flex-end' | 'justify-center' | 'space-around' | 'space-between' | 'space-evenly'
-type Align = 'start' | 'align-center' | 'end' | 'baseline' | 'stretch'
+export type Justify = 'flex-start' | 'flex-end' | 'justify-center' | 'space-around' | 'space-between' | 'space-evenly'
+export type Align = 'start' | 'align-center' | 'end' | 'baseline' | 'stretch'
 export interface RowProps {
   justify?: Justify
   align?: Align

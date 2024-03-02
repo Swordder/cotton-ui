@@ -1,0 +1,35 @@
+{ 
+  "compilerOptions": {
+    "target": "ES2015",
+    "useDefineForClassFields": true,
+    "lib": ["ES2020", "DOM", "DOM.Iterable"],
+    "module": "ESNext",
+    "skipLibCheck": false,
+    "declaration": true,
+    "declarationDir": "./types", // 类型声明文件输出目录
+
+    "outDir": "dist", // 输出目录
+
+    /* Bundler mode */
+    "moduleResolution": "node",
+    "allowImportingTsExtensions": false, // 是否允许引入带后缀文件 愿意是不允许 导入的文件需要是一个编译后的模块 而ts是未编译的 
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": false, // 不输出declaration,sourcefile,sourcemap 官方解释为了交给babel,swc处理, 所以我的理解是编译不通过tsc而是通过三方编译器的usecase
+    "jsx": "react",
+    "jsxFactory": "React.createElement",
+    "jsxFragmentFactory": "React.Fragment",
+
+    /* Linting */
+    "allowJs": true,
+    "strict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true,
+    "baseUrl": ".",
+    "paths": {
+      "@cotton-ui/*": ["packages/*"],
+    },
+  },
+  "include": ["packages"]
+}

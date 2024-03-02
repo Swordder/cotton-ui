@@ -1,0 +1,32 @@
+@use '../mixins/bem.scss' as *;
+@use '../mixins/function.scss' as *;
+@use '../common/var.scss' as *;
+@use '../mixins/_var' as *;
+@use '../mixins/mixin.scss' as *;
+
+@include b(tabs) {
+  @include set-component-css-var('tabs',$tabs)
+}
+
+@include b(tabs) {
+  background-color: #fff;
+  position: relative;
+  border-bottom: 2px solid getCssVar('border-color');
+  @include e(wrap) {
+    min-height: getCssVar('tabs-header-height');
+  }
+  
+  @include e(track) {
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    height: 2px;
+    background-color: getCssVar('color-primary');
+  }
+  .is-active {
+    color: getCssVar('color-primary')
+  }
+  // 
+  
+}
+

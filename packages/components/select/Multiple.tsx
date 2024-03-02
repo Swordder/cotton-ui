@@ -1,5 +1,5 @@
 import './style/index.css'
-import {getMergedCls, isArray, isEmpty, isNumber, isObject, useNamespace} from '@cotton-ui/utils'
+import {getMergedCls, isArray, isEmpty, isObject, useNamespace} from '@cotton-ui/utils'
 import DropDownMenu from '../dropDownMenu'
 import DropDownMenuItem from '../dropDownMenuItem'
 import Input from '../input'

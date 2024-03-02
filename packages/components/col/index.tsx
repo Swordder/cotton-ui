@@ -54,7 +54,7 @@ const Col: React.FC<ColProps> = props => {
 
     ;['span','offset','pull','push'].forEach
       (item => {
-          if (item === 'span') cls.push(e(isUndefined(props[item]) ? 24 : props[item]))
+          if (item === 'span') !isUndefined(props[item]) && cls.push(e(props[item]))
           else cls.push(e(isUndefined(props[item]) ? 0 : `${item}-${props[item]}`))
     })
     ;['xs','sm','md','lg','xl'].forEach(item => {

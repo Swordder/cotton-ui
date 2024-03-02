@@ -1,5 +1,5 @@
 import './style/index.css'
-import React from 'react'
+import * as React from 'react'
 import { getMergedCls, isString, useNamespace } from '@cotton-ui/utils'
 
 export interface IconProps {
@@ -9,7 +9,7 @@ export interface IconProps {
   color? : string
   rotate?: number
   className?: string
-  onClick?: () => void
+  onClick?: (...args: any[]) => void
 }
 
 const Icon: React.FC<IconProps> = (props) => {

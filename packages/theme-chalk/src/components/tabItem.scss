@@ -1,0 +1,19 @@
+@use '../mixins/bem.scss' as *;
+@use '../mixins/function.scss' as *;
+@use '../common/var.scss' as *;
+@use '../mixins/_var' as *;
+
+@include b(tabItem) {
+  // padding: 10px 16px;
+  & + .ct-tabItem {
+    margin-left: 16px;
+  }
+  .ct-icon-close {
+    margin-left: 6px;
+    border-radius: 50%;
+    &:hover {
+      background: getCssVar('color','info','light-3');
+      color: #fff
+    }
+  }
+}
